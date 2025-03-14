@@ -11,9 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from typing import Any
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR: Path = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,12 +26,12 @@ SECRET_KEY = "django-insecure-=)2phfw$)c#+aq5%*=i0y3cg+lt@j00n3(tlku63=qr&i5hp!d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".pythonanywhere.com"]
+ALLOWED_HOSTS: list[str] = ["localhost", "127.0.0.1", ".pythonanywhere.com"]
 
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS: list[str] = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
     "blog",
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE: list[str] = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -52,7 +53,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "mysite.urls"
 
-TEMPLATES = [  # type: ignore
+TEMPLATES: list[dict[str, Any]] = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [],
@@ -74,7 +75,7 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {  # type: ignore
+DATABASES: dict[str, dict[str, Any]] = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
@@ -85,7 +86,7 @@ DATABASES = {  # type: ignore
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS: list[dict[str, str]] = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
@@ -117,7 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT: Path = BASE_DIR / "static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
